@@ -33,6 +33,9 @@ gulp.task('minify', ['compileStyles'], function () {
   'use strict';
   gulp.src(cssDistGlob)
     .pipe(plg.minifyCss())
+    .pipe(plg.rename(function (path) {
+      path.basename += '.min';
+    }))
     .pipe(gulp.dest(cssDistOut));
 });
 
