@@ -36,6 +36,7 @@ gulp.task('minify', ['compileStyles'], function () {
     .pipe(plg.rename(function (path) {
       path.basename += '.min';
     }))
+    .pipe(plg.header('/* Compiled on <%- prettyDate %> */\n', { prettyDate: plg.util.date(Date.now()) }))
     .pipe(gulp.dest(cssDistOut));
 });
 
