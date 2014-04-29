@@ -1,8 +1,6 @@
 /*jslint indent: 2 todo: true*/
-// TODO: minify dist/css
 var gulp = require('gulp'),
-  // note that this invokes itself, returning the gulpLoadPlugins object
-  plg = require('gulp-load-plugins')(),
+  plg = require('gulp-load-plugins')(), // note that this invokes itself, returning the gulpLoadPlugins object
   pkg = require('./package.json');
 
 var cleanDirs = ['dist/'],
@@ -23,12 +21,14 @@ var banner = ['/**',
 
 gulp.task('default', ['preview']);
 
+// remove old stuff
 gulp.task('clean', function () {
   'use strict';
   return gulp.src(cleanDirs)
     .pipe(plg.clean({read: false, force: true}));
 });
 
+// compile sass to css, then copy from src to dist
 gulp.task('compileStyles', ['clean'], function () {
   'use strict';
   gulp.src(sassSrcGlob)
@@ -39,6 +39,7 @@ gulp.task('compileStyles', ['clean'], function () {
     .pipe(gulp.dest('dist'));
 });
 
+// minify our css and add a banner
 gulp.task('minify', ['compileStyles'], function () {
   'use strict';
   gulp.src(cssDistGlob)
