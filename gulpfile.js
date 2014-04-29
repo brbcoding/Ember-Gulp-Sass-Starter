@@ -2,7 +2,8 @@
 // TODO: minify dist/css
 var gulp = require('gulp'),
   // note that this invokes itself, returning the gulpLoadPlugins object
-  plg = require('gulp-load-plugins')();
+  plg = require('gulp-load-plugins')(),
+  pkg = require('./package.json');
 
 var cleanDirs = ['dist/'],
   sassSrcGlob = './src/sass/*.scss',
@@ -10,6 +11,15 @@ var cleanDirs = ['dist/'],
   cssSrcOut = './src/css/',
   cssDistOut = './dist/css',
   srcBase = 'src/';
+
+var banner = ['/**',
+  ' * <%= pkg.name %>',
+  ' * <%= pkg.description %>',
+  ' * @author <%= pkg.author %>',
+  ' * @version v<%= pkg.version %>',
+  ' * @license <%= pkg.license %>',
+  ' */',
+  ''].join('\n');
 
 gulp.task('default', ['preview']);
 
@@ -36,7 +46,7 @@ gulp.task('minify', ['compileStyles'], function () {
     .pipe(plg.rename(function (path) {
       path.basename += '.min';
     }))
-    .pipe(plg.header('/* Compiled on <%- prettyDate %> */\n', { prettyDate: plg.util.date(Date.now()) }))
+    .pipe(plg.header(banner, { pkg: pkg }))
     .pipe(gulp.dest(cssDistOut));
 });
 

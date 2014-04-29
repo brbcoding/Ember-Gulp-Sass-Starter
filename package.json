@@ -1,7 +1,7 @@
 {
-  "name": "cnx-frontend",
+  "name": "Project Oculus",
   "version": "0.0.0",
-  "description": "starter-kit ===========",
+  "description": "ExactTarget Connections 2014 Front-End Application",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "ExactTarget",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.6.2",
