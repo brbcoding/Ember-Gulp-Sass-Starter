@@ -1,5 +1,5 @@
 {
-  "name": "Project Oculus",
+  "name": "Project-Oculus",
   "version": "0.0.0",
   "description": "ExactTarget Connections 2014 Front-End Application",
   "main": "index.js",
@@ -20,6 +20,8 @@
     "gulp-minify-css": "^0.3.2",
     "gulp-rename": "^1.2.0",
     "gulp-header": "^1.0.2",
-    "gulp-util": "^2.2.14"
+    "gulp-util": "^2.2.14",
+    "gulp-watch": "^0.6.4",
+    "gulp-sass": "^0.7.1"
   }
 }

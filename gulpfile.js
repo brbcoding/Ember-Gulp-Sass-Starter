@@ -1,14 +1,17 @@
 /*jslint indent: 2 todo: true*/
+// TODO: add watch commands for sass
+// TODO: jslint / code standards
+// TODO: cache changes
 var gulp = require('gulp'),
   plg = require('gulp-load-plugins')(), // note that this invokes itself, returning the gulpLoadPlugins object
   pkg = require('./package.json');
 
 var cleanDirs = ['dist/'],
-  sassSrcGlob = './src/sass/*.scss',
-  cssDistGlob = './dist/css/*.css',
+  sassSrcGlob = './src/sass/**/*.scss',
+  cssDistGlob = './dist/css/**/*.css',
   cssSrcOut = './src/css/',
   cssDistOut = './dist/css',
-  srcBase = 'src/';
+  srcBase = './src/';
 
 var banner = ['/**',
   ' * <%= pkg.name %>',
@@ -32,7 +35,7 @@ gulp.task('clean', function () {
 gulp.task('compileStyles', ['clean'], function () {
   'use strict';
   gulp.src(sassSrcGlob)
-    .pipe(plg.rubySass())
+    .pipe(plg.sass())
     .pipe(gulp.dest(cssSrcOut));
 
   return gulp.src(cssSrcOut + '*', { base: srcBase })
