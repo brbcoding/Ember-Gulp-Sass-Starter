@@ -1,7 +1,7 @@
 {
-  "name": "Project-Oculus",
+  "name": "Ember-Gulp-Sass-Starter",
   "version": "0.0.0",
-  "description": "ExactTarget Connections 2014 Front-End Application",
+  "description": "Starter kit because I am lazy",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ExactTarget",
+  "author": "Cody Henshaw",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.6.2",
@@ -20,7 +20,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-header": "^1.0.2",
     "gulp-util": "^2.2.14",
-    "gulp-watch": "^0.6.4",
     "gulp-sass": "^0.7.1"
-  }
+  },
+  "repository": "https://github.com/brbcoding/Ember-Gulp-Sass-Starter"
 }
